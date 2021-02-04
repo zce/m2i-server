@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-// import chrome from 'chrome-aws-lambda'
-import puppeteer from 'puppeteer'
+import chrome from 'chrome-aws-lambda'
+import puppeteer from 'puppeteer-core'
 import marked from 'marked'
 
 const defaultOptions = {
@@ -25,10 +25,15 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
   const html = options.template.replace('{{markdown}}', content.trim())
 
   // capture screenshot by puppeteer
-  const browser = await puppeteer.launch({ product: 'chrome' })
+  const browser = await puppeteer.launch({
+    args: chrome.args,
+    executablePath: await chrome.executablePath,
+    headless: chrome.headless
+  })
   const page = await browser.newPage()
   await page.setViewport({ width: options.width, height: 80, deviceScaleFactor: 2 })
   await page.setContent(html)
+  await page.waitFor(200) // wait for rendering
   const buffer = await page.screenshot({ fullPage: true })
   await browser.close()
 
