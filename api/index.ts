@@ -4,7 +4,7 @@ import puppeteer from 'puppeteer-core'
 import marked from 'marked'
 
 const defaultOptions = {
-  width: 800,
+  width: 600,
   template: '<link rel="stylesheet" href="https://unpkg.com/github-markdown-css"><div class="markdown-body" style="padding: 2.5em">{{markdown}}</div>'
 }
 
