@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import puppeteer from 'puppeteer'
+import { webkit } from 'playwright'
 import marked from 'marked'
 
 const defaultOptions = {
@@ -24,9 +24,8 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
   const html = options.template.replace('{{markdown}}', content.trim())
 
   // capture screenshot by puppeteer
-  const browser = await puppeteer.launch()
-  const page = await browser.newPage()
-  await page.setViewport({ width: options.width, height: 50, deviceScaleFactor: 2 })
+  const browser = await webkit.launch()
+  const page = await browser.newPage({ deviceScaleFactor: 2, viewport: { width: options.width, height: 100 } })
   await page.setContent(html)
   const buffer = await page.screenshot({ fullPage: true })
   await browser.close()
