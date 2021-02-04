@@ -20,13 +20,12 @@
     ]
   },
   "dependencies": {
-    "chrome-aws-lambda": "5.5.0",
     "marked": "1.2.9",
-    "puppeteer-core": "7.0.1"
+    "playwright-aws-lambda": "0.6.0",
+    "playwright-core": "1.8.0"
   },
   "devDependencies": {
     "@types/marked": "1.2.2",
-    "@types/puppeteer-core": "5.4.0",
     "@vercel/node": "1.9.0",
     "ts-standard": "10.0.0"
   }
