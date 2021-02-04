@@ -77,6 +77,18 @@ button {
   transition: all .3s;
 }
 
+button:hover {
+  border-color: #416bf6;
+  background: #416bf6;
+  color: #fff;
+}
+
+button:focus {
+  border-color: rgb(89, 126, 247);
+  box-shadow: rgba(89, 126, 247, 0.3) 0px 0px 0px 0.125rem;
+  outline: 0px;
+}
+
 .container {
   max-width: 50rem;
   margin-left: auto;
