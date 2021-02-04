@@ -33,6 +33,7 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
   const page = await browser.newPage()
   await page.setViewport({ width: options.width, height: 100, deviceScaleFactor: 2 })
   await page.setContent(html)
+  await page.waitFor(200) // wait for rendering
   const buffer = await page.screenshot({ fullPage: true })
   await browser.close()
 
