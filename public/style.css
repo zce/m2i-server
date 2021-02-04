@@ -1,0 +1,142 @@
+:root {
+
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0px;
+  color: rgb(51, 64, 77);
+  background: rgb(248, 249, 250);
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #597ef7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #597ef7;
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: .5rem 1rem;
+  border: 1px solid #d1d9e0;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  color: #33404d;
+  line-height: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border .3s, background .3s, color .3s, box-shadow .3s;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 0.25rem rgba(89, 126, 247, 0.3);
+  border-color: #597ef7;
+  outline: 0;
+}
+
+button {
+  appearance: none;
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  border: 1px solid #597ef7;
+  border-radius: .25rem;
+  background: #597ef7;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: inherit;
+  cursor: pointer;
+  user-select: none;
+  transition: all .3s;
+}
+
+.container {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.logo {
+  font-size: 5rem;
+  font-weight: 300;
+  text-align: center;
+  opacity: 0.3;
+}
+
+.editor {
+  margin-bottom: 1rem;
+  /* height: 50rem; */
+  max-height: 80vh;
+}
+
+.advanced {
+  margin-bottom: 2rem;
+  border: 1px solid #d1d9e0;
+  border-radius: 0.25rem;
+  transition: background 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.advanced summary {
+  padding: .5rem 1rem;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.advanced .inner {
+  padding: 1rem;
+  border-top: 1px solid #d1d9e0;
+}
+
+.advanced[open] {
+  background: #fff;
+}
+
+.width {
+  margin-bottom: 1rem;
+}
+
+.muted {
+  margin-top: 0;
+  font-size: 0.875rem;
+  color: #667f99;
+}
+
+.button {
+  margin-bottom: 4rem;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  color: #667f99;
+}

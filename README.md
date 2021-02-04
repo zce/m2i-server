@@ -6,29 +6,21 @@
 
 ### GET `/api`
 
-Combine an email address.
+convert markdown to image.
 
 ```shell
-$ curl https://m2i-server.vercel.app/api
+$ curl -X POST https://m2i.vercel.app/api
 ```
 
-#### Parameters
+#### Request
 
-- `name`: email user name, alias: `username`
-- `host`: email host, default: `'zce.me'`
+- `markdown`: markdown document
+- `width`: output image width, default: `800`
+- `template`: output html template, default: `'<link rel="stylesheet" href="https://unpkg.com/github-markdown-css"><div class="markdown-body" style="padding: 2.5em">{{markdown}}</div>'`
 
-#### Response Type
+#### Response
 
-```json
-{
-  "name": "...",
-  "email": "..."
-}
-```
-
-## Related
-
-<!-- TODO: related projects -->
+Rendered image.
 
 ## License
 
