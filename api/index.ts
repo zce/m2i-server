@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import playwright from 'playwright-aws-lambda'
+import { launchChromium } from 'playwright-aws-lambda'
 import marked from 'marked'
 
 const defaultOptions = {
@@ -24,7 +24,7 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
   const html = options.template.replace('{{markdown}}', content.trim())
 
   // capture screenshot by puppeteer
-  const browser = await playwright.launchChromium()
+  const browser = await launchChromium()
   const page = await browser.newPage({ viewport: { width: options.width, height: 80 }, deviceScaleFactor: 2 })
   await page.setContent(html)
   const buffer = await page.screenshot({ fullPage: true })
