@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { launchChromium } from 'playwright-aws-lambda'
+import { launchChromium, loadFont } from 'playwright-aws-lambda'
 import marked from 'marked'
 
 const defaultOptions = {
@@ -23,6 +23,9 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
 
   const html = options.template.replace('{{markdown}}', content.trim())
 
+  // load font
+  await loadFont('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap')
+  await loadFont('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap')
   // capture screenshot by puppeteer
   const browser = await launchChromium()
   const page = await browser.newPage({ viewport: { width: options.width, height: 80 }, deviceScaleFactor: 2 })
