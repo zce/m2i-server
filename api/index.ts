@@ -1,9 +1,10 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { launchChromium, loadFont } from 'playwright-aws-lambda'
+import { launchChromium } from 'playwright-aws-lambda'
 import marked from 'marked'
 
 const defaultOptions = {
   width: 600,
+  scale: 1,
   template: '<link rel="stylesheet" href="https://unpkg.com/github-markdown-css"><div class="markdown-body" style="padding: 2.5em">{{markdown}}</div>'
 }
 
@@ -12,23 +13,21 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
     // return if without redirect url.
     return res.status(400).send({ message: 'Bad Request: missing required `markdown`.' })
   }
-  const options = { ...defaultOptions, ...req.body }
 
+  const markdown = req.body.markdown
+  const height = 80
   /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-  options.width = ~~options.width || defaultOptions.width
-  options.template = options.template || defaultOptions.template
+  const width = ~~req.body.width || defaultOptions.width
+  const deviceScaleFactor = ~~req.body.scale || defaultOptions.scale
+  const template = req.body.template || defaultOptions.template
   /* eslint-enable @typescript-eslint/strict-boolean-expressions */
 
-  const content = marked(options.markdown)
+  const content = marked(markdown)
 
-  const html = options.template.replace('{{markdown}}', content.trim())
+  const html = template.replace('{{markdown}}', content.trim())
 
-  // load font
-  // await loadFont('https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap')
-  // await loadFont('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap')
-  // capture screenshot by puppeteer
   const browser = await launchChromium()
-  const page = await browser.newPage({ viewport: { width: options.width, height: 80 }, deviceScaleFactor: 2 })
+  const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor })
   await page.setContent(html)
   const buffer = await page.screenshot({ fullPage: true })
   await browser.close()
