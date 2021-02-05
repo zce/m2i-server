@@ -22,6 +22,10 @@ $ curl -X POST https://m2i.vercel.app/api
 
 Rendered image.
 
+## Related
+
+- [zce/m2i](https://github.com/zce/m2i) - A minimalist CLI markdown to image converter.
+
 ## License
 
 [MIT](LICENSE) &copy; [zce](https://zce.me)
