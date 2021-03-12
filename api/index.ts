@@ -4,8 +4,8 @@ import marked from 'marked'
 
 const defaultOptions = {
   width: 600,
-  scale: 1,
-  template: '<link rel="stylesheet" href="https://unpkg.com/github-markdown-css"><div class="markdown-body" style="padding: 2.5em">{{markdown}}</div>'
+  scale: 2,
+  template: '<link rel="stylesheet" href="https://cdn.zce.me/markdown.css">{{markdown}}'
 }
 
 export default async (req: VercelRequest, res: VercelResponse): Promise<any> => {

@@ -20,13 +20,13 @@
     ]
   },
   "dependencies": {
-    "marked": "1.2.9",
+    "marked": "2.0.1",
     "playwright-aws-lambda": "0.6.0",
     "playwright-core": "1.9.2"
   },
   "devDependencies": {
-    "@types/marked": "1.2.2",
-    "@vercel/node": "1.9.0",
+    "@types/marked": "2.0.0",
+    "@vercel/node": "1.9.1",
     "ts-standard": "10.0.0"
   }
 }

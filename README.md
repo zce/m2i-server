@@ -14,9 +14,10 @@ $ curl -X POST https://m2i.vercel.app/api
 
 #### Request
 
-- `markdown`: markdown document
-- `width`: output image width, default: `800`
-- `template`: output html template, default: `'<link rel="stylesheet" href="https://unpkg.com/github-markdown-css"><div class="markdown-body" style="padding: 2.5em">{{markdown}}</div>'`
+- `markdown`: markdown document content
+- `width`: viewport width, default: `600`
+- `scale`: device scale factor: `2`
+- `template`: output html template, default: `'<link rel="stylesheet" href="https://cdn.zce.me/markdown.css">{{markdown}}'`
 
 #### Response
 
