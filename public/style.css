@@ -149,3 +149,8 @@ footer {
   text-align: center;
   opacity: .5;
 }
+
+footer i {
+  font-style: normal;
+  color: #ff8787;
+}
