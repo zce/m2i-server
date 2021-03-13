@@ -4,6 +4,8 @@
   "description": "A service to convert markdown to image.",
   "keywords": [
     "m2i-server",
+    "serverless",
+    "lambda",
     "api",
     "zce"
   ],
@@ -20,9 +22,9 @@
     ]
   },
   "dependencies": {
+    "chrome-aws-lambda": "7.0.0",
     "marked": "2.0.1",
-    "playwright-aws-lambda": "0.6.0",
-    "playwright-core": "1.9.2"
+    "puppeteer-core": "8.0.0"
   },
   "devDependencies": {
     "@types/marked": "2.0.0",

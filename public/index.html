@@ -162,7 +162,7 @@
   <header><h1>M2I</h1></header>
   <form action="/api" method="post" target="_blank">
     <label for="editor">Markdown</label>
-    <textarea name="markdown" id="editor" cols="30" rows="16" placeholder="Markdown"></textarea>
+    <textarea name="markdown" id="editor" cols="30" rows="14" placeholder="Markdown"></textarea>
     <details>
       <summary>Advanced settings</summary>
       <div>
@@ -171,21 +171,11 @@
         <label for="scale">scale</label>
         <input type="number" name="scale" id="scale" value="2" placeholder="Device scale factor">
         <label for="template">template</label>
-        <textarea name="template" id="template" cols="30" rows="8" placeholder="HTML template"><link rel="stylesheet" href="https://cdn.zce.me/markdown.css">
+        <textarea name="template" id="template" cols="30" rows="6" placeholder="HTML template"><link rel="stylesheet" href="https://cdn.zce.me/markdown.css">
 <style>
-  .watermark {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
-    background: center url('data:image/svg+xml,<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" opacity=".05" transform="rotate(-35) translate(-7 57)">%E6%8B%89%E5%8B%BE%E6%95%99%E8%82%B2</text></svg>');
-    /* pointer-events: none; */
-  }
+  /* custom styles */
 </style>
-<div>{{markdown}}</div>
-<div class="watermark"></div></textarea>
+<div>{{markdown}}</div></textarea>
         <small><code>{{markdown}}</code> will be replaced with the converted markdown html.</small>
       </div>
     </details>
