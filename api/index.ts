@@ -56,8 +56,7 @@ export default async (req: VercelRequest, res: VercelResponse): Promise<any> => 
   const content = marked(markdown)
   const html = template.replace('{{markdown}}', content.trim())
 
-  const isAws = process.env.AWS_REGION == null
-  const options = isAws ? localOptions() : await awsOptions()
+  const options = process.env.AWS_REGION == null ? localOptions() : await awsOptions()
   const browser = await puppeteer.launch(options)
   const page = await browser.newPage()
   await page.setViewport({ width, height, deviceScaleFactor })
