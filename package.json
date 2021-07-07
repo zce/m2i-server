@@ -22,13 +22,13 @@
     ]
   },
   "dependencies": {
-    "chrome-aws-lambda": "8.0.0",
-    "marked": "2.0.1",
-    "puppeteer-core": "8.0.0"
+    "chrome-aws-lambda": "10.0.0",
+    "marked": "2.1.3",
+    "puppeteer-core": "10.1.0"
   },
   "devDependencies": {
-    "@types/marked": "2.0.0",
-    "@vercel/node": "1.9.1",
+    "@types/marked": "2.0.4",
+    "@vercel/node": "1.11.1",
     "ts-standard": "10.0.0"
   }
 }
