@@ -18,12 +18,11 @@ const defaultParams = {
   template: '<link rel="stylesheet" href="https://cdn.zce.me/markdown.css">{{markdown}}'
 }
 
-
 /**
  * Checks whether something exists on given path.
  * @param input input path
  */
- export const exists = async (input: string): Promise<boolean> => {
+export const exists = async (input: string): Promise<boolean> => {
   try {
     const stat = await fs.stat(input)
     return stat.isFile()
@@ -59,7 +58,6 @@ const getChromiumPath = async (): Promise<string> => {
   throw new Error('Unable to find executable chromium, Please use the `CHROMIUM_PATH` env to provide an executable path.')
 }
 
-
 const getOptions = async (): Promise<Options> => {
   if (process.env.AWS_REGION == null) {
     return { headless: true, executablePath: await getChromiumPath() }
@@ -68,7 +66,7 @@ const getOptions = async (): Promise<Options> => {
   // load all fonts
   const fontDir = path.join(__dirname, '../fonts')
   const fontFiles = await fs.readdir(fontDir)
-  await Promise.all(fontFiles.map(item => chromium.font(path.join(fontDir, item))))
+  await Promise.all(fontFiles.map(async item => await chromium.font(path.join(fontDir, item))))
 
   return {
     headless: chromium.headless,
