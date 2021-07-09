@@ -62,14 +62,14 @@ const getOptions = async (): Promise<Options> => {
     return { headless: true, executablePath: await getChromiumPath() }
   }
 
-  const fonts = [
-    'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf',
-    'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSerif/NotoSerif-Regular.ttf',
-    'https://raw.githubusercontent.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf',
-  ]
+  // const fonts = [
+  //   'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf',
+  //   'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSerif/NotoSerif-Regular.ttf',
+  //   'https://raw.githubusercontent.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf',
+  // ]
 
-  // load all fonts
-  await Promise.all(fonts.map(async item => await chromium.font(item)))
+  // // load all fonts
+  // await Promise.all(fonts.map(async item => await chromium.font(item)))
 
   return {
     headless: chromium.headless,
