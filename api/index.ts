@@ -1,5 +1,4 @@
 import fs from 'fs/promises'
-import path from 'path'
 import marked from 'marked'
 import puppeteer from 'puppeteer-core'
 import chromium from 'chrome-aws-lambda'
@@ -63,10 +62,14 @@ const getOptions = async (): Promise<Options> => {
     return { headless: true, executablePath: await getChromiumPath() }
   }
 
+  const fonts = [
+    'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSans/NotoSans-Regular.ttf',
+    'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/hinted/ttf/NotoSerif/NotoSerif-Regular.ttf',
+    'https://raw.githubusercontent.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf',
+  ]
+
   // load all fonts
-  const fontDir = path.join(__dirname, '../fonts')
-  const fontFiles = await fs.readdir(fontDir)
-  await Promise.all(fontFiles.map(async item => await chromium.font(path.join(fontDir, item))))
+  await Promise.all(fonts.map(async item => await chromium.font(item)))
 
   return {
     headless: chromium.headless,
