@@ -27,7 +27,7 @@
     "puppeteer-core": "10.1.0"
   },
   "devDependencies": {
-    "@types/marked": "2.0.4",
+    "@types/marked": "2.0.5",
     "@vercel/node": "1.11.1",
     "ts-standard": "10.0.0"
   }
