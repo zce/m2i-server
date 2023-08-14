@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/marked": "2.0.4",
-    "@vercel/node": "1.11.1",
+    "@vercel/node": "2.15.10",
     "ts-standard": "10.0.0"
   }
 }
